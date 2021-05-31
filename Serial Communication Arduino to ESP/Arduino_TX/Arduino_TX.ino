@@ -1,7 +1,7 @@
 #include <ArduinoJson.h>
 #include <SoftwareSerial.h>
 
-SoftwareSerial toESP(2, 3);
+SoftwareSerial toESP(3, 2);
 void setup() {
   Serial.begin(9600);
   toESP.begin(9600);
