@@ -14,11 +14,11 @@ RtcDS3231<TwoWire> Rtc(Wire);
 
 SoftwareSerial mySoftwareSerial(3,2); // RX, TX
 DFRobotDFPlayerMini myDFPlayer;
-
+#define buzz 8
 #include "RTC.h"
 #include "ParamEEPROM.h"
 #include "7SegmentSPI.h"
-#define buzz 8
+
 
 int adzan = false, tarhim = false;
 bool kdp, blinking;
@@ -99,13 +99,14 @@ void runAdzan(){
       runblink++;
     }else blinking=false;
   }
-  if(digitalRead(5)){
+//  Serial.println(digitalRead(5));
+  if(digitalRead(5) && !blinking){
     adzan = false;
     tarhim = false;
     Serial.println("Adzan False");
   }
   
-}
+} 
 void cekAdzan(){
   if(SholatNow+1==0 && SholatNow+1==1){
     return;
@@ -116,20 +117,27 @@ void cekAdzan(){
 //  Serial.println(selisih, 5);
   if(!adzan){
     if(selisih>0 && selisih<0.03){
-      adzan = true;
-      blinking=true;
-      Serial.println("Adzan True");
-      myDFPlayer.volume(vol);
+//    if(selisih>0 && selisih<0.007){
+        adzan = true;
+        blinking=true;
+        Serial.println("Adzan True");
+        myDFPlayer.volume(vol);
       if(SholatNow==1){
         myDFPlayer.playMp3Folder(6);
       }
-      else myDFPlayer.playMp3Folder(1);
+      else {
+//        myDFPlayer.playMp3Folder(7);
+        myDFPlayer.playMp3Folder(1);
+      }
+      waktuSholatNow();
     }
   }
-  if(!tarhim && selisih>-0.081666667){
+  if(!tarhim && selisih<0 && selisih>-0.081666667){
+//    if(!tarhim && selisih<0 && selisih>-0.00085){
 //    play MP3 0002.mp3
     myDFPlayer.volume(vol);
     myDFPlayer.playMp3Folder(2);
+//    myDFPlayer.playMp3Folder(8);
     tarhim = true;
   }
 }
@@ -177,7 +185,7 @@ void waktuSholatNow() {
     Serial.print("==");
     Serial.println(floatnow);
     if (floatnow > stimeFloat[i]) {
-      
+      Serial.println("Sholat Now");
       SholatNow = i;
       break;
     }

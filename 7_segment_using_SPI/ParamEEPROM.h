@@ -259,7 +259,10 @@ void GetPrm()
 void set_default_prm()
       {
         // Put Parameter start form addr 500
-        Prm = (struct_param){1,-6.39524,106.80256,45,7,1,20,2,10,30,15,10,10,7,10,1,1,1,1,0};
+        Prm = (struct_param){1,-8.79775,115.2202,45,8,1,20,2,10,30,15,10,10,7,10,1,1,1,1,0};
+        digitalWrite(buzz, HIGH);
+        delay(1000);
+        digitalWrite(buzz, LOW);
         EEPROM.put(0,Prm);
         EEPROM.put(55, "Masjid Al-Arsy\0");
         EEPROM.put(130, "Info 1\0");
