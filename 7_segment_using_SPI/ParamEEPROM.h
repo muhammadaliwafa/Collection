@@ -134,6 +134,7 @@ void LoadPrm()
         else if(CH_Prm[1]=='S' and CH_Prm[2]=='M')  {eeAdd = 580; eeMax=149;}
         else if(CH_Prm[1]=='J' and CH_Prm[2]=='M')  {eeAdd = 730; eeMax=149;}
         else if(CH_Prm[1]=='O'){Serial.println("bluetooth tersambung"); return;}
+        else return;
 
         int eeCount =0;        
         while((eeCount<= lenprm) and (eeCount < eeMax))
