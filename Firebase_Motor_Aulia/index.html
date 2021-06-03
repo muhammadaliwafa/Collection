@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://websaya-cd0b6.web.app/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <title>SmartHome</title>
+
+</head>
+
+
+
+<body>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="./index_files/firebase-app.js"></script>
+    <script src="./index_files/firebase-database.js"></script>
+    <script src="./index_files/firebase-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script> -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script> -->
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<!-- <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"> -->
+</script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDspvh7CChonvOqDnXWxmmZ2SmXj3-q3Xk",
+    authDomain: "aulia-ta.firebaseapp.com",
+    databaseURL: "https://aulia-ta-default-rtdb.firebaseio.com",
+    projectId: "aulia-ta",
+    storageBucket: "aulia-ta.appspot.com",
+    messagingSenderId: "171935456920",
+    appId: "1:171935456920:web:7f742a8d5217d06891faed",
+    measurementId: "G-PTHM7L2K6S"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+//   firebase.analytics();
+</script>
+
+<!-- <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+                apiKey: "AIzaSyBGQpkT11l6NADikQkOr525GwdhLUC6ioI",
+                authDomain: "websaya-cd0b6.firebaseapp.com",
+                databaseURL: "https://websaya-cd0b6.firebaseio.com",
+                projectId: "websaya-cd0b6",
+                storageBucket: "websaya-cd0b6.appspot.com",
+                messagingSenderId: "205462190459",
+                appId: "1:205462190459:web:4a32a0c5d3f0374a"
+            };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+</script> -->
+
+<script>
+        
+
+        var starCountRef = firebase.database().ref('monitor').child("0");
+        starCountRef.on('value', function(snapshot) {
+        //updateStarCount(postElement, snapshot.val());
+        // console.log('snapshot' + snapshot.val());
+        switch(snapshot.val()){
+            case 1:
+            document.getElementById("warna").innerHTML="Merah";
+            break;
+            case 2:
+            document.getElementById("warna").innerHTML="Hijau";
+            break;  
+            case 3:
+            document.getElementById("warna").innerHTML="Biru";
+            break;
+        }
+
+        });
+
+        var starCountRef = firebase.database().ref('monitor').child("1");
+        starCountRef.on('value', function(snapshot) {
+        //updateStarCount(postElement, snapshot.val());
+        // console.log('snapshot' + snapshot.val());
+        document.getElementById("counter").innerHTML=snapshot.val();
+        });
+
+        var starCountRef = firebase.database().ref('monitor').child("2");
+        starCountRef.on('value', function(snapshot) {
+        //updateStarCount(postElement, snapshot.val());
+        // console.log('snapshot' + snapshot.val());
+        document.getElementById("kec").innerHTML=snapshot.val();
+        });
+
+        var status_power;
+        var starCountRef = firebase.database().ref('Data/Array/Perintah').child("0");
+        starCountRef.on('value', function(snapshot) {
+        //updateStarCount(postElement, snapshot.val());
+        // console.log('snapshot' + snapshot.val());
+        status_power=snapshot.val();
+        });
+
+        // starCountRef = firebase.database().ref('PBL/cmd').child("lampu2");
+        // starCountRef.on('value', function(snapshot) {
+        // //updateStarCount(postElement, snapshot.val());
+        // console.log('snapshot' + snapshot.val());
+        // if(snapshot.val()){
+        //     //document.getElementById("lingkaran1").style = ".lingkaran";//
+        //     document.getElementById("lampu2hdp").style.display = "block";
+        //     document.getElementById("lampu2mati").style.display = "none";
+        // } else{
+        //     //document.getElementById("lingkaran1").style.background = "#ccc";
+        //     document.getElementById("lampu2hdp").style.display = "none";
+        //     document.getElementById("lampu2mati").style.display = "block";
+        // }
+        // });
+
+        // starCountRef = firebase.database().ref('PBL/status').child("suhu");
+        // starCountRef.on('value', function(snapshot) {
+        // //updateStarCount(postElement, snapshot.val());
+        // console.log('snapshot' + snapshot.val());
+        // document.getElementById("suhuskrg").innerHTML=snapshot.val();
+        // });
+
+        //  starCountRef = firebase.database().ref('PBL/status').child("Kelembaban");
+        // starCountRef.on('value', function(snapshot) {
+        // //updateStarCount(postElement, snapshot.val());
+        // console.log('snapshot' + snapshot.val());
+        // document.getElementById("kelembaban").innerHTML=snapshot.val();
+        // });
+
+        // var pwrAC, pwrLp1, pwrLp2;
+ 		// starCountRef = firebase.database().ref('PBL/cmd').child("powerAC");
+        // starCountRef.on('value', function(snapshot) {
+        // //updateStarCount(postElement, snapshot.val());
+        // pwrAC=snapshot.val();
+
+        // });
+       
+		
+		// //acccccccccccccccccccccccccccccccccccccccccccccc
+        // starCountRef = firebase.database().ref('PBL/cmd').child("powerAC");
+        // starCountRef.on('value', function(snapshot) {
+        // //updateStarCount(postElement, snapshot.val());
+        // console.log('snapshot' + snapshot.val());
+        // if(snapshot.val()){
+        //     //document.getElementById("lingkaran1").style = ".lingkaran";//
+        //     document.getElementById("achdp").style.display = "block";
+        //     document.getElementById("acmati").style.display = "none";
+        // } else{
+        //     //document.getElementById("lingkaran1").style.background = "#ccc";
+        //     document.getElementById("achdp").style.display = "none";
+        //     document.getElementById("acmati").style.display = "block";
+        // }
+        // });
+
+
+        function power(){
+            console.log("power", status_power);
+        	if (status_power=="1") {
+        		firebase.database().ref('Data/Array/Perintah').child("0").set("0");
+        	}
+        	else{
+        		firebase.database().ref('Data/Array/Perintah').child("0").set("1");
+        	}
+        }
+
+        // starCountRef = firebase.database().ref('PBL/cmd').child("lampu1");
+        // starCountRef.on('value', function(snapshot) {
+        // //updateStarCount(postElement, snapshot.val());
+        // pwrLp1=snapshot.val();
+
+        // });
+        // function powerLp1(){
+        // 	if (pwrLp1) {
+        // 		firebase.database().ref('PBL/cmd').child("lampu1").set(false);
+        // 	}
+        // 	else{
+        // 		firebase.database().ref('PBL/cmd').child("lampu1").set(true);
+        // 	}
+        // }
+
+        // starCountRef = firebase.database().ref('PBL/cmd').child("lampu2");
+        // starCountRef.on('value', function(snapshot) {
+        // //updateStarCount(postElement, snapshot.val());
+        // pwrLp2=snapshot.val();
+
+        // });
+        // function powerLp2(){
+        // 	if (pwrLp2) {
+        // 		firebase.database().ref('PBL/cmd').child("lampu2").set(false);
+        //         // firebase.database().ref('PBL/cmd').child("lampu1").set(false);
+        // 	}
+        // 	else{
+        // 		firebase.database().ref('PBL/cmd').child("lampu2").set(true);
+        //         // firebase.database().ref('PBL/cmd').child("lampu1").set(true);
+        // 	}
+        // } 
+
+        // function acCmd(){
+        //     var x =5;
+        //     x= document.getElementById("slider").value;
+            
+        //     firebase.database().ref('PBL/cmd').child("cmdAC").set(x);
+        //     document.getElementById("demo").innerHTML = x;
+        // }
+
+
+            
+</script>
+<span><h2>kecepatan</h2><h2 id="kec"></h2></span>
+
+
+<h2>warna</h2>
+<h2 id="warna"></h2>
+<h2>counter</h2>
+<h2 id="counter"></h2>
+
+<button onclick="power()">POWER</button>
+
+</body></html>

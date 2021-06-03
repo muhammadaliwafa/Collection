@@ -108,13 +108,10 @@ void runAdzan(){
   
 } 
 void cekAdzan(){
-  if(SholatNow+1==0 && SholatNow+1==1){
-    return;
-  }
+//  if(SholatNow+1==0 || SholatNow+1==2 || SholatNow+1==3){
+//    return;
+//  }
   float selisih = floatnow - stimeFloat[SholatNow+1];
-//  Serial.print(stimeFloat[SholatNow+1], 5);
-//  Serial.print("==");
-//  Serial.println(selisih, 5);
   if(!adzan){
     if(selisih>0 && selisih<0.03){
 //    if(selisih>0 && selisih<0.007){
@@ -173,6 +170,7 @@ void UpdateWaktu() {
   BacaRTC();
   if(lastTgl!=rTgl){
     updateJWS();
+    waktuSholatNow();
     lastTgl=rTgl;
   }
   
@@ -187,6 +185,14 @@ void waktuSholatNow() {
     if (floatnow > stimeFloat[i]) {
       Serial.println("Sholat Now");
       SholatNow = i;
+      switch(SholatNow){
+        case -1:
+          SholatNow = 0;
+          break;
+        case 1:
+          SholatNow = 3;
+          break;
+      }
       break;
     }
   }

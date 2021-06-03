@@ -1,0 +1,233 @@
+body{
+	line-height: 1;
+}
+
+ol, ul, {
+	list-style: none;
+}
+
+blockquote, q{
+	quotes: none;
+}
+
+blockquote:before,
+blockquote: after,
+q:before, q:after{
+	content: '';
+	content: none;
+}
+
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+
+}
+
+/*style*/
+.update{
+	width: 100%;
+	height: 15px;
+	background: #b2f400;
+	padding: 5px;
+	opacity: 0.5;
+}
+
+.isiupdate{
+	color: #fff;
+	bottom: 23px;
+	left: 5px;
+	position: relative;
+}
+body{
+	font: 16px/20px arial, san-serif;
+	/*background-color: #001228;*/
+	/*ackground-image: url(SmartHome_files/dark-paths.png)*/
+	background-image: url(bg.png);
+
+
+}
+.container{
+	width: 90%;
+	margin: auto;
+	background-color:  #ec5923;
+	color: #fff;
+	border-radius: 10px;
+
+} 
+
+h1{
+	padding-top: 20px;
+	padding-left: 20px;
+	font-size: 20px;
+	margin-bottom: -20px;
+	border-radius: 10px;
+}
+
+h2{
+	padding-top: 0px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	font-size: 40px;
+}
+
+h3{
+	padding: 10px;
+	background-color: #bbbbbb;
+	}
+
+/*judul remainder*/
+.reminder{
+	border-left: 80px solid #005dbc;
+	border-right: 40px solid #b2f400;
+	background-color:  #005dbc;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	width: 70%;
+}
+.jdulremin{
+	padding: 10px;
+	background-color: #fff;
+	color: #005dbc;
+	width: 70%;
+	font-size: 20px;
+	border-radius: 10px;
+
+}
+
+
+
+
+
+
+
+/*isi remainder*/
+
+.isiremin{
+	margin-top: 20px;
+	padding: 10px;
+	color: #fff;
+}
+
+.contremain{
+	border-radius: 10px;
+	border: 2px solid #fff;
+	
+}
+.isitanggal{
+	padding-right: auto;
+	border-radius: 10px;
+	border: 2px solid #fff;
+
+}
+.ListHari{
+	text-align: left;
+	padding-left: 40%;
+	padding-top: auto;
+	padding-bottom: auto;
+	border-radius: 10px;
+	border: 2px solid #fff;
+}
+.setremin{
+	
+	width: 30%;
+	padding: 10px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	margin-left: 10px;
+	border: 2px solid #fff;
+	border-radius: 10px;
+
+}
+.tanggal{
+	margin-top: auto;
+	margin-bottom: auto;
+	border-radius: 10px;
+	border: 2px solid #fff;
+
+}
+
+.hari{
+	margin-top: auto;
+	margin-bottom: auto;
+	border-radius: 10px;
+	border: 2px solid #fff;
+}
+
+.jam{
+	border: 2px solid #fff;
+	border-radius: 10px;
+}
+
+.injam{
+	border: 2px solid #fff;
+	border-radius: 10px;
+}
+
+
+
+/*judul kamar*/
+.kamar{
+	border-left: 80px solid #005dbc;
+	border-right: 40px solid #b2f400;
+	background-color:  #005dbc;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	width: 70%;
+}
+.jdulkamar{
+	padding: 10px;
+	background-color: #fff;
+	color: #005dbc;
+	width: 70%;
+	font-size: 20px;
+	border-radius: 10px;
+}
+
+
+
+
+/*isi kamar*/
+.suhuinput{
+	width: 40%;
+}
+
+.isikamar{
+	border-radius: 10px;
+}
+
+
+
+/*judul Penghuni*/
+.penghuni{
+	border-left: 80px solid #005dbc;
+	border-right: 40px solid #b2f400;
+	background-color:  #005dbc;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	width: 70%;
+	border-radius: 10px;
+}
+.jdulpenghuni{
+	padding: 10px;
+	background-color: #fff;
+	color: #005dbc;
+	width: 70%;
+	font-size: 20px;
+	border-radius: 10px;
+}
+
+.allow{
+	border-radius: 10px;
+	border: 2px solid #fff;
+	width: 150px;
+	padding: 10px;
+}
+
+/*id
+Lampi 1 = LampuKamar1
+Lampi 2 = LampuKamar2
+Status AC = AC
+suhu kamar = SuhuKamar
+*/
+
+
