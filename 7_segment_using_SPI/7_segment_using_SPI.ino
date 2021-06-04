@@ -39,6 +39,8 @@ uint8_t stimeInt[8][3]={
 void setup() {
   mySoftwareSerial.begin(9600);
   Serial.begin(9600);
+  mulaiRTC();
+  BacaRTC();
   GetPrm();
   
   if (!myDFPlayer.begin(mySoftwareSerial)) {  //Use softwareSerial to communicate with mp3.
@@ -59,7 +61,7 @@ void setup() {
   SPI.setBitOrder(MSBFIRST);   // Reverse the SPI Data o/p. 
   SPI.begin();                 // Start SPI
 
-  mulaiRTC();
+  
   UpdateWaktu();
   waktuSholatNow();
   
@@ -73,6 +75,7 @@ void setup() {
  pinMode(4, OUTPUT);
  pinMode(5, INPUT);
  digitalWrite(4, HIGH);
+// set_default_prm();
 }
 
 void loop() {
@@ -104,6 +107,7 @@ void runAdzan(){
     adzan = false;
     tarhim = false;
     Serial.println("Adzan False");
+    waktuSholatNow();
   }
   
 } 
@@ -119,14 +123,14 @@ void cekAdzan(){
         blinking=true;
         Serial.println("Adzan True");
         myDFPlayer.volume(vol);
-      if(SholatNow==1){
+      if(SholatNow+1==1){
         myDFPlayer.playMp3Folder(6);
       }
       else {
 //        myDFPlayer.playMp3Folder(7);
         myDFPlayer.playMp3Folder(1);
       }
-      waktuSholatNow();
+      
     }
   }
   if(!tarhim && selisih<0 && selisih>-0.081666667){
@@ -182,21 +186,20 @@ void waktuSholatNow() {
     Serial.print(stimeFloat[i], 5);
     Serial.print("==");
     Serial.println(floatnow);
-    if (floatnow > stimeFloat[i]) {
+    if (floatnow > (stimeFloat[i]+0.03)) {
       Serial.println("Sholat Now");
       SholatNow = i;
-      switch(SholatNow){
-        case -1:
-          SholatNow = 0;
-          break;
-        case 1:
-          SholatNow = 3;
-          break;
-      }
       break;
     }
   }
-
+  switch(SholatNow){
+    case -1:
+      SholatNow = 0;
+      break;
+    case 1:
+      SholatNow = 3;
+      break;
+  }
   Serial.println(SholatNow);
 
 }

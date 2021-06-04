@@ -196,6 +196,7 @@ void LoadPrm()
       {
           BT_Param = String(CH_Prm);
           uint16_t year = byte(BT_Param.substring(7,9).toInt());
+          year += 2000;
           uint8_t month = byte(BT_Param.substring(5,7).toInt());
           uint8_t day = byte(BT_Param.substring(3,5).toInt());
           uint8_t jam = byte(BT_Param.substring(9,11).toInt());
@@ -217,6 +218,8 @@ void LoadPrm()
     GetPrm();
     myDFPlayer.volume(vol);
     UpdateWaktu();
+    Serial.print("tahun :");
+    Serial.println(rTah);
     waktuSholatNow();
     if (CH_Prm[0]=='S' and CH_Prm[1]=='Q' and CH_Prm[2]=='P')
       {
@@ -238,8 +241,12 @@ void GetPrm()
         Serial.println("default");
         
       }
+      
     if (rTah < 2021)//check date time .. less than 1 jan 2018 set Default
       {
+        Serial.print("tahun terbaca : ");
+        Serial.println(rTah);
+        Serial.println("atur waktu awal");
         set_default_time();
       }
     vol = map(Prm.BL, 0, 200, 0, 30);
